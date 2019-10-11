@@ -30,15 +30,28 @@ const save = (data, callback) => {
   }
 };
 
-const getCarousel = (req, res) => {
-  Carousel.find({ 'movie.id': req.params.movieId }, (err, results) => {
+const getSmallCarousel = (movieId, callback) => {
+  Carousel.find({'movie.id': movieId}, "small_url movie", (err, results) => {
     if (err) {
-      res.send(err);
+      callback(err);
     } else {
-      res.send(results);
+      callback(null, results);
     }
   });
 }
 
+
+const getLargeCarousel = (movieId, callback) => {
+  Carousel.find({'movie.id': movieId}, "large_url movie", (err, results) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, results);
+    }
+  });
+}
+
+
 module.exports.save = save;
-module.exports.getCarousel = getCarousel;
+module.exports.getSmallCarousel = getSmallCarousel;
+module.exports.getLargeCarousel = getLargeCarousel;
