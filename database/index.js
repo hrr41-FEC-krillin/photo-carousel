@@ -30,19 +30,17 @@ const save = (data, callback) => {
   }
 };
 
-const getSmallCarousel = (movieId, callback) => {
-  Carousel.find({'movie.id': movieId}, "small_url movie", (err, results) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, results);
-    }
-  });
-}
+const getCarousel = (movieId, path, callback) => {
+  var imageSize = undefined;
 
+  path = path.slice(0, 10);
+  if (path === '/api/imgl/') {
+    imageSize = 'large_url'
+  } else if (path === '/api/imgt/') {
+    imageSize = 'small_url'
+  }
 
-const getLargeCarousel = (movieId, callback) => {
-  Carousel.find({'movie.id': movieId}, "large_url movie", (err, results) => {
+  Carousel.find({'movie.id': movieId}, `${imageSize} movie`, (err, results) => {
     if (err) {
       callback(err);
     } else {
@@ -53,5 +51,4 @@ const getLargeCarousel = (movieId, callback) => {
 
 
 module.exports.save = save;
-module.exports.getSmallCarousel = getSmallCarousel;
-module.exports.getLargeCarousel = getLargeCarousel;
+module.exports.getCarousel = getCarousel;
