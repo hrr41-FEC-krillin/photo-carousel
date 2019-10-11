@@ -6,7 +6,7 @@ app.use(express.static('public'));
 
 
 app.get('/api/imgt/:movieId', (req, res) => {
-  db.getSmallCarousel(req.params.movieId, (err, data) => {
+  db.getCarousel(req.params.movieId, req.path, (err, data) => {
     if (err) {
       res.send(err);
     } else {
@@ -17,7 +17,7 @@ app.get('/api/imgt/:movieId', (req, res) => {
 
 
 app.get('/api/imgl/:movieId', (req, res) => {
-  db.getLargeCarousel(req.params.movieId, (err, data) => {
+  db.getCarousel(req.params.movieId, req.path, (err, data) => {
     if (err) {
       res.send(err);
     } else {
