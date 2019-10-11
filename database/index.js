@@ -33,10 +33,10 @@ const save = (data, callback) => {
 const getCarousel = (movieId, path, callback) => {
   var imageSize = undefined;
 
-  path = path.slice(0, 10);
-  if (path === '/api/imgl/') {
+  path = path.slice(0, 14);
+  if (path === '/api/imglarge/') {
     imageSize = 'large_url'
-  } else if (path === '/api/imgt/') {
+  } else if (path === '/api/imgsmall/') {
     imageSize = 'small_url'
   }
 

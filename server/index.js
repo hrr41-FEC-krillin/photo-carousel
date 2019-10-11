@@ -5,7 +5,7 @@ const app = express();
 app.use(express.static('public'));
 
 
-app.get('/api/imgt/:movieId', (req, res) => {
+app.get('/api/imgsmall/:movieId', (req, res) => {
   db.getCarousel(req.params.movieId, req.path, (err, data) => {
     if (err) {
       res.send(err);
@@ -16,7 +16,7 @@ app.get('/api/imgt/:movieId', (req, res) => {
 });
 
 
-app.get('/api/imgl/:movieId', (req, res) => {
+app.get('/api/imglarge/:movieId', (req, res) => {
   db.getCarousel(req.params.movieId, req.path, (err, data) => {
     if (err) {
       res.send(err);
