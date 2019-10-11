@@ -5,8 +5,25 @@ const app = express();
 app.use(express.static('public'));
 
 
-app.get('/api/:movieId/imgs', (req, res) => {
-  db.getCarousel(req, res);
+app.get('/api/imgt/:movieId', (req, res) => {
+  db.getSmallCarousel(req.params.movieId, (err, data) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(data);
+    }
+  });
+});
+
+
+app.get('/api/imgl/:movieId', (req, res) => {
+  db.getLargeCarousel(req.params.movieId, (err, data) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(data);
+    }
+  });
 });
 
 
