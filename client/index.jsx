@@ -24,8 +24,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Carousel carousel={this.state.carousel} />
+      <div className="carousel-body">
+        <div className="carousel-header">
+          <div className="carousel-title">(Movie Name) PHOTOS</div>
+        </div>
+        <div className="carousel-navbar">
+          navigation bar here
+        </div>
+        <div>
+          <Carousel carousel={this.state.carousel} />
+        </div>
       </div>
     );
   }
