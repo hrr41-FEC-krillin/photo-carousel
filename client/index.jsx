@@ -34,6 +34,9 @@ class App extends React.Component {
         <div>
           <Carousel carousel={this.state.carousel} />
         </div>
+        <div className="carousel-viewAll">
+          View All Photos ({this.state.carousel.length})
+        </div>
       </div>
     );
   }
