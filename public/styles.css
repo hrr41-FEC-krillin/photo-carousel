@@ -1,34 +1,45 @@
 .carousel-body {
   background: white;
-  max-width: 718px;
+  max-width: 730px;
+  border: 3px solid purple;
+  display: flex;
+  flex-direction: column;
 }
 
 .carousel-header {
+  border: 3px solid green;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-header-color {
   background: red;
+  border: 3px solid black;
 }
 
 .carousel-title {
   margin-left: 25px;
   background: white;
   display: inline-block;
-  padding: 5px;
+  font-weight: bold;
+  border: 3px solid black;
 }
 
 .carousel-navbar {
   float: right;
+  border: 3px solid black;
 }
 
 .carousel-line {
-  text-align: center;
-  display: inline;
-  padding: 5px;
+  border: 3px solid yellow;
+  display: flex;
+  flex-direction: row;
+  flex: 0 1 auto;
 }
 
 .carousel-thumbnail img {
   max-height: 167px;
   max-width: 167px;
-  float: left;
-  padding: 5px;
 }
 
 .carousel-viewAll {
@@ -36,4 +47,11 @@
   margin-right: 20px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
+  border: 3px solid black;
+}
+
+.carousel-viewAll a {
+  color: rgb(34, 105, 172);
+  text-decoration: none;
+  border: 3px solid black;
 }
