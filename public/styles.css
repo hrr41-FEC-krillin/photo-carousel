@@ -1,4 +1,31 @@
+.carousel-body {
+  background: white;
+  max-width: 718px;
+}
+
+.carousel-header {
+  background: red;
+}
+
+.carousel-title {
+  margin-left: 20px;
+  background: white;
+  display: inline-block;
+}
+
+.carousel-navbar {
+  float: right;
+}
+
+.carousel-line {
+  text-align: center;
+  display: inline;
+  padding: 5px;
+}
+
 .carousel-thumbnail img {
   max-height: 167px;
   max-width: 167px;
+  float: left;
+  padding: 5px;
 }
