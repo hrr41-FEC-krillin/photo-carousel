@@ -6,7 +6,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      carousel: []
+      carousel: [{
+        small_url: 'https://hrr41-fec-krillin-imgs.s3-us-west-1.amazonaws.com/small0.jpg'
+      }, {
+        small_url: 'https://hrr41-fec-krillin-imgs.s3-us-west-1.amazonaws.com/small1.jpg'
+      }, {
+        small_url: 'https://hrr41-fec-krillin-imgs.s3-us-west-1.amazonaws.com/small2.jpg'
+      }, {
+        small_url: 'https://hrr41-fec-krillin-imgs.s3-us-west-1.amazonaws.com/small3.jpg'
+      }]
     }
   }
 
@@ -17,7 +25,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Carousel />
+        <Carousel carousel={this.state.carousel} />
       </div>
     );
   }
