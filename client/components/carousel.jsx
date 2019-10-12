@@ -1,10 +1,10 @@
 import React from 'react';
-import Thumbnail from './thumbnail.jsx';
+import CarouselEntry from './carouselEntry.jsx';
 
 
 const Carousel = (props) => (
   <div>
-    <Thumbnail />
+    <CarouselEntry />
   </div>
 )
 
