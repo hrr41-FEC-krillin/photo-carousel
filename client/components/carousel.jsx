@@ -4,7 +4,9 @@ import CarouselEntry from './carouselEntry.jsx';
 
 const Carousel = (props) => (
   <div>
-    <CarouselEntry />
+    {props.carousel.map(entry =>
+      <CarouselEntry entry={entry} />
+    )}
   </div>
 )
 
