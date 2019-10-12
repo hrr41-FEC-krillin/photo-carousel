@@ -26,16 +26,16 @@ class App extends React.Component {
     return (
       <div className="carousel-body">
         <div className="carousel-header">
-          <div className="carousel-title">(Movie Name) PHOTOS</div>
+          <div className="carousel-header-color">
+            <div className="carousel-title">(Movie Name) PHOTOS</div>
+          </div>
+          <div className="carousel-navbar">
+            navigation bar here
+          </div>
         </div>
-        <div className="carousel-navbar">
-          navigation bar here
-        </div>
-        <div>
-          <Carousel carousel={this.state.carousel} />
-        </div>
+        <Carousel carousel={this.state.carousel} />
         <div className="carousel-viewAll">
-          View All Photos ({this.state.carousel.length})
+          <a href="http://www.google.com">View All Photos ({this.state.carousel.length})</a>
         </div>
       </div>
     );
