@@ -11,15 +11,14 @@ class App extends React.Component {
       currentMovie: '',
       carousel: [],
       carouselByFours: [],
-      currentFour: []
-      currentIndex: 0;
+      currentFour: [],
+      currentIndex: 0
     }
 
     this.fetch = this.fetch.bind(this);
     this.groupImagesByFours = this.groupImagesByFours.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-
 
   //currently hardcoded to get specific movie
   componentDidMount() {
@@ -46,7 +45,7 @@ class App extends React.Component {
     //inner arrays have four images each in them
     //if movie has < 4 images total then add in 'blank' image as placeholder
   groupImagesByFours(carousel) {
-    var count = carousel.length / 4;
+    var count = carousel.length;
     var selectedFour = [];
     var allGroupsOfFour = [];
     var genericImage= {"_id": "placeholder",
@@ -67,7 +66,7 @@ class App extends React.Component {
         selectedFour = carousel.slice(-4);
       }
       allGroupsOfFour.push(selectedFour);
-      i++;
+      i = i + 4;
     }
 
     this.setState({carouselByFours: allGroupsOfFour});
@@ -75,18 +74,27 @@ class App extends React.Component {
   }
 
   //change currentFour displayed (cycle through carousel)
-  handleClick(direction) {
+  handleClick(event) {
     var maxLength = this.state.carouselByFours.length - 1;
-    if (direction === 'right') {
+    var upIndex = this.state.currentIndex + 1;
+    var downIndex = this.state.currentIndex - 1;
+
+    if (event.target.value === '>') {
       if (this.state.currentIndex === maxLength) {
         this.setState({currentFour: this.state.carouselByFours[0],
           currentIndex: 0})
+      } else {
+        this.setState({currentFour: this.state.carouselByFours[upIndex],
+          currentIndex: upIndex})
       }
     }
-    if (direction === 'left') {
+    if (event.target.value === '<') {
       if (this.state.currentIndex === 0) {
         this.setState({currentFour: this.state.carouselByFours[maxLength],
           currentIndex: maxLength})
+      } else {
+        this.setState({currentFour: this.state.carouselByFours[downIndex],
+          currentIndex: downIndex})
       }
     }
   }
@@ -98,14 +106,14 @@ class App extends React.Component {
           <div className="carousel-header-color">
             <div className="carousel-title">{this.state.currentMovie} PHOTOS</div>
           </div>
-          <div className="carousel-navbar">
+          <div className="carousel-navbar-bin">
             <Navigation total={this.state.carouselByFours} />
           </div>
         </div>
         <div className="carousel-bin">
-          <button className="carousel-left" onClick={this.handleClick('left')}> {'<'} </button>
+          <button className="carousel-left" value="<" onClick={this.handleClick}> {'<'} </button>
           <Carousel carousel={this.state.currentFour} />
-          <button className="carousel-right" onClick={this.handleClick('right')}> {'>'} </button>
+          <button className="carousel-right" value=">" onClick={this.handleClick}> {'>'} </button>
         </div>
         <div className="carousel-viewAll">
           <a href="http://www.google.com">View All Photos ({this.state.carousel.length})</a>
