@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import Navigation from './components/navigation.jsx';
 import Carousel from './components/carousel.jsx';
 
 class App extends React.Component {
@@ -44,7 +45,7 @@ class App extends React.Component {
             <div className="carousel-title">{this.state.currentMovie} PHOTOS</div>
           </div>
           <div className="carousel-navbar">
-            navigation bar here
+            <Navigation />
           </div>
         </div>
         <div className="carousel-bin">
