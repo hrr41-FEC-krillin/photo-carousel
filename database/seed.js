@@ -13,11 +13,11 @@ const generateDataArray = (entries) => {
     let imgUrl = randomNumber(21);
     let movieInt = randomNumber(12);
     let fakeImageData = {
-      _id: 3131 + i,
+      _id: Number('3131' + i.toString()),
       small_url:`https://hrr41-fec-krillin-imgs.s3-us-west-1.amazonaws.com/small${imgUrl}.jpg`,
       large_url:`https://hrr41-fec-krillin-imgs.s3-us-west-1.amazonaws.com/large${imgUrl}.jpg`,
       movie: {
-        id: 2121 + movieInt,
+        id: Number('2121' + movieInt.toString()),
         title: movieIds[movieInt]
       }
     }
