@@ -4,6 +4,9 @@ const db = require('../database/index.js')
 const app = express();
 app.use(express.static('public'));
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}))
+
 
 app.get('/api/imgsmall/:movieId', (req, res) => {
   db.getCarousel(req.params.movieId, req.path, (err, data) => {
