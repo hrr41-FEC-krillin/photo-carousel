@@ -1,57 +1,97 @@
 .carousel-body {
   background: white;
-  max-width: 730px;
-  border: 3px solid purple;
+  max-width: 725px;
+
   display: flex;
   flex-direction: column;
+  align-items: stretch;
 }
 
 .carousel-header {
-  border: 3px solid green;
   display: flex;
   flex-direction: column;
 }
 
 .carousel-header-color {
   background: red;
-  border: 3px solid black;
+  height: 20px;
+  margin: 5px;
 }
 
 .carousel-title {
-  margin-left: 25px;
   background: white;
-  display: inline-block;
   font-weight: bold;
-  border: 3px solid black;
+
+  height: 25px;
+  transform: scale(1, 1.8);
+  padding-right: 5px;
+  padding-left: 5px;
+
+  display: inline-flex;
+  margin-left: 25px;
 }
 
 .carousel-navbar {
-  float: right;
-  border: 3px solid black;
+  margin-right: 5px;
+  text-align: right;
+}
+
+.carousel-bin {
+  display: grid;
+  grid-template-columns: repeat(25px);
+  grid-template-rows: fr fr fr fr;
+  z-index: 0;
+  margin-top: 5px;
+}
+
+.carousel-left {
+  font-size: 12px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+
+  z-index: 100;
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.carousel-right {
+  font-size: 12px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+
+  z-index: 100;
+  grid-column-start: 28;
+  grid-row-start: 2;
 }
 
 .carousel-line {
-  border: 3px solid yellow;
   display: flex;
   flex-direction: row;
-  flex: 0 1 auto;
+  justify-content: space-evenly;;
+
+  z-index: 1;
+  grid-column-start: 1;
+  grid-column-end: 29;
+  grid-row-start: 1;
+  grid-row-end: 4;
 }
 
 .carousel-thumbnail img {
   max-height: 167px;
   max-width: 167px;
+  z-index: 2;
 }
 
 .carousel-viewAll {
-  float: right;
   margin-right: 20px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  border: 3px solid black;
 }
 
 .carousel-viewAll a {
   color: rgb(34, 105, 172);
   text-decoration: none;
-  border: 3px solid black;
+  float: right;
 }
