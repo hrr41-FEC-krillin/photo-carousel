@@ -1,27 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 import Carousel from './components/carousel.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    //state is currently hardcoded while setting up divs
-    //will change this in next pull request
     this.state = {
-      carousel: [{
-        small_url: 'https://hrr41-fec-krillin-imgs.s3-us-west-1.amazonaws.com/small0.jpg'
-      }, {
-        small_url: 'https://hrr41-fec-krillin-imgs.s3-us-west-1.amazonaws.com/small1.jpg'
-      }, {
-        small_url: 'https://hrr41-fec-krillin-imgs.s3-us-west-1.amazonaws.com/small2.jpg'
-      }, {
-        small_url: 'https://hrr41-fec-krillin-imgs.s3-us-west-1.amazonaws.com/small3.jpg'
-      }]
+      carousel: [],
+      currentFour: []
     }
+
+    this.fetch = this.fetch.bind(this);
   }
 
+  fetch(url, params) {
+    axios.get(`/api/${url}/${params}`)
+    .then(response => {
+      console.log(response);
+      this.setState({carousel: response.data})
+    })
+    .catch(error => {
+      console.log(error);
+    })
+    .finally(() => {
+      this.setState({currentFour: this.state.carousel.slice(0, 4)})
+    })
+  }
+
+  //currently hardcoded to get specific movie
   componentDidMount() {
-    //fetch function here
+    this.fetch('imgsmall', 21215);
   }
 
   //will add dynamic navigation bar in future pull request
@@ -39,7 +48,7 @@ class App extends React.Component {
         </div>
         <div className="carousel-bin">
           <button className="carousel-left"> @ </button>
-          <Carousel carousel={this.state.carousel} />
+          <Carousel carousel={this.state.currentFour} />
           <button className="carousel-right"> @ </button>
         </div>
         <div className="carousel-viewAll">
