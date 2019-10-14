@@ -4,7 +4,7 @@ import React from 'react';
 
 const CarouselEntry = (props) => (
   <div className="carousel-thumbnail">
-    <img src={props.entry.small_url} ></img>
+    <img src={props.entry.small_url} alt={props.entry._id} ></img>
   </div>
 )
 
