@@ -12,15 +12,39 @@ class App extends React.Component {
       carousel: [],
       carouselByFours: [],
       currentFour: []
+      currentIndex: 0;
     }
 
     this.fetch = this.fetch.bind(this);
     this.groupImagesByFours = this.groupImagesByFours.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+
+  //currently hardcoded to get specific movie
+  componentDidMount() {
+    this.fetch('imgsmall', 21210);
+  }
+
+  //will be used to get both thumbnails and large images
+  fetch(url, params) {
+    axios.get(`/api/${url}/${params}`)
+    .then(response => {
+      console.log(response);
+      this.setState({carousel: response.data})
+    })
+    .catch(error => {
+      console.log(error);
+    })
+    .finally(() => {
+      this.setState({currentMovie: this.state.carousel[0].movie.title});
+      this.groupImagesByFours(this.state.carousel);
+    })
   }
 
   //this function breaks the images into an array of arrays
-    // inner arrays have four images each in them
-    // if movie has < 4 images total then add in 'blank' image as placeholder
+    //inner arrays have four images each in them
+    //if movie has < 4 images total then add in 'blank' image as placeholder
   groupImagesByFours(carousel) {
     var count = carousel.length / 4;
     var selectedFour = [];
@@ -50,27 +74,23 @@ class App extends React.Component {
     this.setState({currentFour: this.state.carouselByFours[0]});
   }
 
-  fetch(url, params) {
-    axios.get(`/api/${url}/${params}`)
-    .then(response => {
-      console.log(response);
-      this.setState({carousel: response.data})
-    })
-    .catch(error => {
-      console.log(error);
-    })
-    .finally(() => {
-      this.setState({currentMovie: this.state.carousel[0].movie.title});
-      this.groupImagesByFours(this.state.carousel);
-    })
+  //change currentFour displayed (cycle through carousel)
+  handleClick(direction) {
+    var maxLength = this.state.carouselByFours.length - 1;
+    if (direction === 'right') {
+      if (this.state.currentIndex === maxLength) {
+        this.setState({currentFour: this.state.carouselByFours[0],
+          currentIndex: 0})
+      }
+    }
+    if (direction === 'left') {
+      if (this.state.currentIndex === 0) {
+        this.setState({currentFour: this.state.carouselByFours[maxLength],
+          currentIndex: maxLength})
+      }
+    }
   }
 
-  //currently hardcoded to get specific movie
-  componentDidMount() {
-    this.fetch('imgsmall', 21210);
-  }
-
-  //will add dynamic navigation bar in future pull request
   render() {
     return (
       <div className="carousel-body">
@@ -83,9 +103,9 @@ class App extends React.Component {
           </div>
         </div>
         <div className="carousel-bin">
-          <button className="carousel-left"> {'<'} </button>
+          <button className="carousel-left" onClick={this.handleClick('left')}> {'<'} </button>
           <Carousel carousel={this.state.currentFour} />
-          <button className="carousel-right"> {'>'} </button>
+          <button className="carousel-right" onClick={this.handleClick('right')}> {'>'} </button>
         </div>
         <div className="carousel-viewAll">
           <a href="http://www.google.com">View All Photos ({this.state.carousel.length})</a>
