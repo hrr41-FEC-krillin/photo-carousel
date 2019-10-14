@@ -7,6 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentMovie: '',
       carousel: [],
       currentFour: []
     }
@@ -24,32 +25,32 @@ class App extends React.Component {
       console.log(error);
     })
     .finally(() => {
-      this.setState({currentFour: this.state.carousel.slice(0, 4)})
+      this.setState({currentFour: this.state.carousel.slice(0, 4),
+      currentMovie: this.state.carousel[0].movie.title})
     })
   }
 
   //currently hardcoded to get specific movie
   componentDidMount() {
-    this.fetch('imgsmall', 21215);
+    this.fetch('imgsmall', 21210);
   }
 
   //will add dynamic navigation bar in future pull request
-  // @ symbols will be replaced with arrow images
   render() {
     return (
       <div className="carousel-body">
         <div className="carousel-header">
           <div className="carousel-header-color">
-            <div className="carousel-title">(Movie Name) PHOTOS</div>
+            <div className="carousel-title">{this.state.currentMovie} PHOTOS</div>
           </div>
           <div className="carousel-navbar">
             navigation bar here
           </div>
         </div>
         <div className="carousel-bin">
-          <button className="carousel-left"> @ </button>
+          <button className="carousel-left"> {'<'} </button>
           <Carousel carousel={this.state.currentFour} />
-          <button className="carousel-right"> @ </button>
+          <button className="carousel-right"> {'>'} </button>
         </div>
         <div className="carousel-viewAll">
           <a href="http://www.google.com">View All Photos ({this.state.carousel.length})</a>
