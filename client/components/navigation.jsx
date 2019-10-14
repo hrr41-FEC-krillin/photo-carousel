@@ -8,9 +8,9 @@ In future pull request:
   > navigation circle will turn red to indicate 'place' in photo carousel
 */
 const Navigation = (props) => (
-  <div>
+  <div className="carousel-navbar">
     {props.total.map(ele =>
-      'o'
+      <div className="carousel-navigation-dot"></div>
     )}
   </div>
 );
