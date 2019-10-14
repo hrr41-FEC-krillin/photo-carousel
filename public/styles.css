@@ -45,10 +45,13 @@
 }
 
 .carousel-left {
-  font-size: 12px;
+  border: none;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
+  background: #fff;
+  color: gray;
+  box-shadow: 0 1px 6px rgba(0,0,0,.3);
 
   z-index: 100;
   grid-column-start: 1;
@@ -56,10 +59,13 @@
 }
 
 .carousel-right {
-  font-size: 12px;
+  border: none;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
+  background: #fff;
+  color: gray;
+  box-shadow: 0 1px 6px rgba(0,0,0,.3);
 
   z-index: 100;
   grid-column-start: 28;
