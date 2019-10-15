@@ -27,6 +27,7 @@ const CarouselHeaderRed = styled.div`
 
 const CarouselHeaderTitle = styled.div`
   background: white;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   height: 25px;
   transform: scale(1, 1.8);
@@ -47,6 +48,8 @@ const CarouselBinWrapper = styled.div`
   grid-template-rows: fr fr fr fr;
   z-index: 0;
   margin-top: 5px;
+  margin-bottom: 5px;
+  overflow: hidden;
 `;
 
 const Button = styled.button`
@@ -72,7 +75,7 @@ const CarouselButtonRight = styled(Button)`
 `;
 
 const CarouselViewAllWrapper = styled.div`
-  margin-right: 20px;
+  margin-right: 15px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
 `;
@@ -188,7 +191,7 @@ class App extends React.Component {
             </CarouselHeaderTitle>
           </CarouselHeaderRed>
           <CarouselNavbarBin>
-            <Navigation total={this.state.carouselByFours} />
+            <Navigation total={this.state.carouselByFours} index={this.state.currentIndex} />
           </CarouselNavbarBin>
         </CarouselHeaderWrapper>
         <CarouselBinWrapper>
