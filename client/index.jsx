@@ -1,8 +1,87 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
 import axios from 'axios';
 import Navigation from './components/navigation.jsx';
 import Carousel from './components/carousel.jsx';
+
+
+const CarouselBodyWrapper = styled.div`
+  background: white;
+  max-width: 725px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+`;
+
+const CarouselHeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const CarouselHeaderRed = styled.div`
+  background: red;
+  height: 20px;
+  margin: 5px;
+`;
+
+const CarouselHeaderTitle = styled.div`
+  background: white;
+  font-weight: bold;
+  height: 25px;
+  transform: scale(1, 1.8);
+  padding-right: 5px;
+  padding-left: 5px;
+  display: inline-flex;
+  margin-left: 25px;
+`;
+
+const CarouselNavbarBin = styled.div`
+  margin-right: 10px;
+  margin-top: 10px;
+`;
+
+const CarouselBinWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(25px);
+  grid-template-rows: fr fr fr fr;
+  z-index: 0;
+  margin-top: 5px;
+`;
+
+const Button = styled.button`
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background: #fff;
+  color: gray;
+  box-shadow: 0 1px 6px rgba(0,0,0,.3);
+`;
+
+const CarouselButtonLeft = styled(Button)`
+  z-index: 100;
+  grid-column-start: 1;
+  grid-row-start: 2;
+`;
+
+const CarouselButtonRight = styled(Button)`
+  z-index: 100;
+  grid-column-start: 28;
+  grid-row-start: 2;
+`;
+
+const CarouselViewAllWrapper = styled.div`
+  margin-right: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+`;
+
+const CarouselViewAllLink = styled.a`
+  color: rgb(34, 105, 172);
+  text-decoration: none;
+  float: right;
+`;
 
 class App extends React.Component {
   constructor(props) {
@@ -101,24 +180,27 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="carousel-body">
-        <div className="carousel-header">
-          <div className="carousel-header-color">
-            <div className="carousel-title">{this.state.currentMovie} PHOTOS</div>
-          </div>
-          <div className="carousel-navbar-bin">
+      <CarouselBodyWrapper>
+        <CarouselHeaderWrapper>
+          <CarouselHeaderRed>
+            <CarouselHeaderTitle>
+              {this.state.currentMovie} PHOTOS
+            </CarouselHeaderTitle>
+          </CarouselHeaderRed>
+          <CarouselNavbarBin>
             <Navigation total={this.state.carouselByFours} />
-          </div>
-        </div>
-        <div className="carousel-bin">
-          <button className="carousel-left" value="<" onClick={this.handleClick}> {'<'} </button>
+          </CarouselNavbarBin>
+        </CarouselHeaderWrapper>
+        <CarouselBinWrapper>
+          <CarouselButtonLeft value="<" onClick={this.handleClick}> {'<'} </CarouselButtonLeft>
           <Carousel carousel={this.state.currentFour} />
-          <button className="carousel-right" value=">" onClick={this.handleClick}> {'>'} </button>
-        </div>
-        <div className="carousel-viewAll">
-          <a href="http://www.google.com">View All Photos ({this.state.carousel.length})</a>
-        </div>
-      </div>
+          <CarouselButtonRight value=">" onClick={this.handleClick}> {'>'} </CarouselButtonRight>
+        </CarouselBinWrapper>
+        <CarouselViewAllWrapper>
+          <CarouselViewAllLink href="http://www.google.com">View All Photos ({this.state.carousel.length})
+          </CarouselViewAllLink>
+        </CarouselViewAllWrapper>
+      </CarouselBodyWrapper>
     );
   }
 }
