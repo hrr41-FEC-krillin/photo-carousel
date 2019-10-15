@@ -5,11 +5,18 @@ import styled from 'styled-components';
 
 const CarouselEntryWrapper = styled.div`
   z-index: 2;
+  max-height: 167px;
+  max-width: 167px;
+  overflow: hidden;
 `;
 
 const CarouselEntryImg = styled.img`
   max-height: 167px;
   max-width: 167px;
+  ${CarouselEntryWrapper}: hover & {
+    transform: scale(1.1);
+    transition: transform .15s ease-in-out;
+  }
 `;
 
 const CarouselEntry = (props) => (
