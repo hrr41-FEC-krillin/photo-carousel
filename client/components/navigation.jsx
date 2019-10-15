@@ -1,18 +1,28 @@
 import React from 'react';
+import styled from 'styled-components';
 
-/*
-Currently:
-  > 'o' is a placeholder -- work will be done in a different pull request
-In future pull request:
-  > will update 'o' to css circles
-  > navigation circle will turn red to indicate 'place' in photo carousel
-*/
+
+const CarouselNavbarWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+`;
+
+const CarouselNavDot = styled.div`
+  border: none;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  margin: 3px;
+  background-color: lightgray;
+`;
+
 const Navigation = (props) => (
-  <div className="carousel-navbar">
+  <CarouselNavbarWrapper>
     {props.total.map(ele =>
-      <div className="carousel-navigation-dot"></div>
+      <CarouselNavDot></CarouselNavDot>
     )}
-  </div>
+  </CarouselNavbarWrapper>
 );
 
 
