@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import NavigationEntry from './navigationEntry.jsx';
 
 
 const CarouselNavbarWrapper = styled.div`
@@ -8,22 +9,13 @@ const CarouselNavbarWrapper = styled.div`
   justify-content: flex-end;
 `;
 
-const CarouselNavDot = styled.div`
-  border: none;
-  border-radius: 50%;
-  width: 12px;
-  height: 12px;
-  margin: 3px;
-  background-color: lightgray;
-`;
-
 const Navigation = (props) => (
   <CarouselNavbarWrapper>
-    {props.total.map(ele =>
-      <CarouselNavDot></CarouselNavDot>
+    {props.total.map((ele, idx) =>
+      <NavigationEntry idx={idx} index={props.index} />
     )}
   </CarouselNavbarWrapper>
-);
+)
 
 
 export default Navigation;
