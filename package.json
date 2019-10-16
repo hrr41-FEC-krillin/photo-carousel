@@ -4,7 +4,7 @@
   "description": "Recreate the movie photos carousel",
   "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon server/index.js",
     "build": "webpack -d",
     "seed": "node database/seed.js"
@@ -34,6 +34,7 @@
     "eslint-config-hackreactor": "github:hackreactor-labs/eslint-config-hackreactor",
     "eslint-plugin-react": "^7.16.0",
     "jest": "^24.9.0",
+    "jest-nyancat-reporter": "^2.0.0",
     "nodemon": "^1.19.3",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9"
