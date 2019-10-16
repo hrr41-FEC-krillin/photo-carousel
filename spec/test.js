@@ -1,5 +1,3 @@
-//const database = require('../database/index.js');
-//const mongoose = require('mongoose');
 const app = require('../server/app.js');
 const request = require('supertest');
 
@@ -42,11 +40,11 @@ describe('server responses', () => {
 
       expect(Array.isArray(data.body)).toBeTruthy();
       expect(data.body.length).toBeGreaterThanOrEqual(1);
-      expect(data.body.length).toBeLessThanOrEqual(25);
+      expect(data.body.length).toBeLessThanOrEqual(20);
     }
   });
 
-  test('should return the same length array', async () => {
+  test('routes should return the same length array', async () => {
     for (let i = 0; i < 12; i++) {
       let movieId = '2121' + i.toString();
       let data = await request(app).get('/api/imgsmall/' + movieId);
@@ -56,29 +54,7 @@ describe('server responses', () => {
     }
   });
 
-  // test('should respond with 404 for movies not in db', async () => {
-  //   let data = await request(app).get('/api/imgsmall/00');
-  //   expect(data.statusCode).toBe(404);
-  // });
-
 });
 
 
-// describe('database', () => {
-//   let server;
-
-//   beforeAll(async (done) => {
-//     await mongoose.connect('mongodb://localhost/test');
-//     server = app.listen(3100, () => {
-//       global.agent = request.agent(server);
-//       done();
-//     });
-//   });
-
-//   afterAll(async () => {
-//     await server.close();
-//     await mongoose.disconnect();
-//   });
-
-// });
 
