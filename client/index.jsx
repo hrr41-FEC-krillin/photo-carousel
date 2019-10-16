@@ -24,7 +24,7 @@ class App extends React.Component {
 
   //currently hardcoded to get specific movie
   componentDidMount() {
-    this.fetch('imgsmall', 21210);
+    this.fetch('imgsmall', 21211);
   }
 
   //will be used to get both thumbnails and large images
@@ -107,7 +107,7 @@ class App extends React.Component {
         <CarouselHeaderWrapper>
           <CarouselHeaderRed>
             <CarouselHeaderTitle>
-              <CarTitle>{this.state.currentMovie}</CarTitle> PHOTOS
+              <CarTitle>{this.state.currentMovie.toUpperCase()}</CarTitle> PHOTOS
             </CarouselHeaderTitle>
           </CarouselHeaderRed>
           <CarouselNavbarBin>
