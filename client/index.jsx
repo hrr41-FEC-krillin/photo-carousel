@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Navigation from './components/navigation.jsx';
 import Carousel from './components/carousel.jsx';
-import { CarouselBodyWrapper, CarouselHeaderWrapper, CarouselHeaderRed, CarouselHeaderTitle, CarouselNavbarBin, CarouselBinWrapper, Button, CarouselButtonLeft, CarouselButtonRight, CarouselViewAllWrapper, CarouselViewAllLink } from './components/stylesheet.jsx';
+import { CarouselBodyWrapper, CarouselHeaderWrapper, CarouselHeaderRed, CarouselHeaderTitle, CarouselNavbarBin, CarouselBinWrapper, Button, CarouselButtonLeft, CarouselButtonRight, CarouselViewAllWrapper, CarouselViewAllLink, CarTitle } from './components/stylesheet.jsx';
 
 
 class App extends React.Component {
@@ -107,7 +107,7 @@ class App extends React.Component {
         <CarouselHeaderWrapper>
           <CarouselHeaderRed>
             <CarouselHeaderTitle>
-              {this.state.currentMovie} PHOTOS
+              <CarTitle>{this.state.currentMovie}</CarTitle> PHOTOS
             </CarouselHeaderTitle>
           </CarouselHeaderRed>
           <CarouselNavbarBin>
