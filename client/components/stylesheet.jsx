@@ -17,20 +17,25 @@ export const CarouselHeaderWrapper = styled.div`
 
 export const CarouselHeaderRed = styled.div`
   background: red;
-  height: 20px;
-  margin: 5px;
+  height: 15px;
+  margin-top: 5px;
 `;
 
 export const CarouselHeaderTitle = styled.div`
   background: white;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
   font-weight: bold;
-  height: 25px;
-  transform: scale(1, 1.8);
+  transform: scale(1, 1.7);
   padding-right: 5px;
   padding-left: 5px;
   display: inline-flex;
   margin-left: 25px;
+`;
+
+export const CarTitle = styled.div`
+  font-style: italic;
+  margin-right: 3px;
 `;
 
 export const CarouselNavbarBin = styled.div`
@@ -45,7 +50,6 @@ export const CarouselBinWrapper = styled.div`
   z-index: 0;
   margin-top: 5px;
   margin-bottom: 5px;
-  overflow: hidden;
 `;
 
 export const Button = styled.button`
