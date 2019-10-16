@@ -1,23 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import { CarouselEntryWrapper, CarouselEntryImg } from './stylesheet.jsx';
 
-//image has on-hover movement -- may need to add state to this component
-
-const CarouselEntryWrapper = styled.div`
-  z-index: 2;
-  max-height: 167px;
-  max-width: 167px;
-  overflow: hidden;
-`;
-
-const CarouselEntryImg = styled.img`
-  max-height: 167px;
-  max-width: 167px;
-  ${CarouselEntryWrapper}: hover & {
-    transform: scale(1.1);
-    transition: transform .15s ease-in-out;
-  }
-`;
 
 const CarouselEntry = (props) => (
   <CarouselEntryWrapper>
