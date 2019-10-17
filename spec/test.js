@@ -1,7 +1,6 @@
 const app = require('../server/app.js');
 const request = require('supertest');
 
-
 describe('server responses', () => {
 
   test('should respond with status 200 for movies in db', async () => {
@@ -56,5 +55,21 @@ describe('server responses', () => {
 
 });
 
+
+import React from 'react';
+import { configure, shallow } from 'enzyme';
+import NavigationEntry from '../client/components/navigationEntry.jsx';
+import Adapter from 'enzyme-adapter-react-16';
+
+describe('navigationEntry Component', () => {
+  configure({adapter: new Adapter()})
+
+  it('should render in debug mode', () => {
+    const component = shallow(<NavigationEntry debug />)
+
+    expect(component).toMatchSnapshot();
+  })
+
+})
 
 
