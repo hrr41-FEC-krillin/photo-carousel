@@ -12,7 +12,7 @@ describe('server responses', () => {
     }
   });
 
-  test('should respond with an array length 1 - 25', async () => {
+  test('should respond with an array length 1 - 20', async () => {
     for (let i = 0; i < 12; i++) {
       let movieId = '2121' + i.toString();
       let data = await request(app).get('/api/imgsmall/' + movieId);
@@ -32,7 +32,7 @@ describe('server responses', () => {
     }
   });
 
-  test('should respond with an array length 1 - 25', async () => {
+  test('should respond with an array length 1 - 20', async () => {
     for (let i = 0; i < 12; i++) {
       let movieId = '2121' + i.toString();
       let data = await request(app).get('/api/imglarge/' + movieId);
@@ -59,10 +59,13 @@ describe('server responses', () => {
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import NavigationEntry from '../client/components/navigationEntry.jsx';
+//import App from '../client/app.jsx';
 import Adapter from 'enzyme-adapter-react-16';
+import sinon from 'sinon';
 
-describe('navigationEntry Component', () => {
-  configure({adapter: new Adapter()})
+configure({adapter: new Adapter()})
+
+describe('NavigationEntry component', () => {
 
   it('should render in debug mode', () => {
     const component = shallow(<NavigationEntry debug />)
@@ -71,5 +74,24 @@ describe('navigationEntry Component', () => {
   })
 
 })
+
+
+
+// describe('App component', () => {
+
+//   it('should render in debug mode', () => {
+//     const component = shallow(<App debug />)
+
+//     expect(component).toMatchSnapshot();
+//   })
+
+//   // it('simulates click events', () => {
+//   //   const onButtonClick = sinon.spy();
+//   //   const wrapper = shallow(<App onClick={App.handleClick} />);
+//   //   wrapper.find('button').simulate('click');
+//   //   expect(onButtonClick).to.have.property('callCount', 1);
+//   // });
+
+// })
 
 
