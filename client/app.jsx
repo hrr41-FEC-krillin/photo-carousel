@@ -70,8 +70,8 @@ class App extends React.Component {
       i = i + 4;
     }
 
-    this.setState({carouselByFours: allGroupsOfFour});
-    this.setState({currentFour: this.state.carouselByFours[0]});
+    this.setState({carouselByFours: allGroupsOfFour,
+      currentFour: allGroupsOfFour[0]});
   }
 
   //change currentFour displayed (cycle through carousel)
