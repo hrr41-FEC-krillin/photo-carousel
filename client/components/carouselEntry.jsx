@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import { CarouselEntryWrapper, CarouselEntryImg, ModalButtonRight, ModalButtonLeft, ModalBin, ModalImage, Modal, ModalHeader, ModalXButton, ModalCount, CarouselMoveRight, CarouselMoveLeft } from './stylesheet.jsx';
+import { CarouselEntryWrapper, CarouselEntryImg, ModalButtonRight, ModalButtonLeft, ModalBin, ModalImage, Modal, ModalHeader, ModalXButton, ModalCount } from './stylesheet.jsx';
 
 
 class CarouselEntry extends React.Component {
@@ -94,31 +94,12 @@ class CarouselEntry extends React.Component {
         ), document.getElementById('imgmodal'));
     }
 
-    if (this.props.animate === 'right') {
-      return (
-        <CarouselMoveRight>
-          <CarouselEntryImg src={this.props.entry.small_url}
-          alt={this.props.entry._id} >
-          </CarouselEntryImg>
-        </CarouselMoveRight>
-      );
-    } else if (this.props.animate === 'left') {
-      return (
-        <CarouselMoveLeft>
-          <CarouselEntryImg src={this.props.entry.small_url}
-          alt={this.props.entry._id} >
-          </CarouselEntryImg>
-        </CarouselMoveLeft>
-      );
-    } else {
-      return (
-        <CarouselEntryWrapper>
-          <CarouselEntryImg src={this.props.entry.small_url}
-          alt={this.props.entry._id} onClick={this.handleClick}>
-          </CarouselEntryImg>
-        </CarouselEntryWrapper>
-      );
-    }
+    return (
+      <CarouselEntryWrapper>
+        <CarouselEntryImg src={this.props.entry.small_url} alt={this.props.entry._id} onClick={this.handleClick}>
+        </CarouselEntryImg>
+      </CarouselEntryWrapper>
+    );
   }
 }
 

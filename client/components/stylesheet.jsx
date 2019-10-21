@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes, css } from 'styled-components';
+import styled from 'styled-components';
 
 
 export const CarouselBodyWrapper = styled.div`
@@ -8,7 +8,6 @@ export const CarouselBodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  margin-left: 10px;
 `;
 
 export const CarouselHeaderWrapper = styled.div`
@@ -90,8 +89,6 @@ export const CarouselViewAllLink = styled.a`
 export const CarouselLineWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: unsafe center;
-  overflow: hidden;
   justify-content: space-evenly;
 
   z-index: 1;
@@ -122,18 +119,12 @@ export const CarouselNavbarWrapper = styled.div`
 
 export const CarouselEntryWrapper = styled.div`
   z-index: 2;
-  min-height: 167px;
-  min-width: 167px;
   max-height: 167px;
   max-width: 167px;
-  margin-right: 7px;
-  margin-left: 7px;
   overflow: hidden;
 `;
 
 export const CarouselEntryImg = styled.img`
-  min-height: 167px;
-  min-width: 167px;
   max-height: 167px;
   max-width: 167px;
   ${CarouselEntryWrapper}: hover & {
@@ -141,6 +132,7 @@ export const CarouselEntryImg = styled.img`
     transition: transform .15s ease-in-out;
   }
 `;
+
 
 export const Modal = styled.div`
   z-index: 1070;
@@ -196,35 +188,3 @@ export const ModalButtonRight = styled(Button)`
   background-color: black;
 `;
 
-const MovementoRight = keyframes`
-  from { transform: translateX(0px); }
-  to { transform: translateX(-500px); }
-`;
-
-export const CarouselMoveRight = styled.div`
-  z-index: 2;
-  min-height: 167px;
-  min-width: 167px;
-  max-height: 167px;
-  max-width: 167px;
-  margin-right: 15px;
-  overflow: hidden;
-  animation: ${MovementoRight} 0.2s ease-in-out;
-`;
-
-const MovementoLeft = keyframes`
-  from { transform: translateX(0px); }
-  to { transform: translateX(500px); }
-`;
-
-export const CarouselMoveLeft = styled.div`
-  z-index: 2;
-  min-height: 167px;
-  min-width: 167px;
-  max-height: 167px;
-  max-width: 167px;
-  margin-right: 15px;
-  overflow: hidden;
-  animation: ${MovementoLeft} 0.2s ease-in-out;
-`;
-        
